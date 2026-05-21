@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phish Hunt: Spot the Scam!</title>
+
+  <style>
+
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      font-family:system-ui,sans-serif;
+      background:linear-gradient(135deg,#4a90ff,#a8e0ec);
+      color:#1a2b5c;
+      padding:20px;
+    }
+
+    .card{
+      background:#fff;
+      padding:40px;
+      border-radius:24px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.12);
+      max-width:650px;
+      width:100%;
+      text-align:center;
+    }
+
+    .logo{
+      font-size:60px;
+    }
+
+    h1{
+      margin:0;
+      font-size:42px;
+    }
+
+    h2{
+      color:#2563eb;
+      margin-top:10px;
+    }
+
+    .score-board{
+      display:flex;
+      justify-content:space-between;
+      margin:20px 0;
+      font-size:20px;
+      font-weight:bold;
+    }
+
+    .timer{
+      background:#2563eb;
+      color:white;
+      padding:12px;
+      border-radius:12px;
+      margin-bottom:25px;
+      font-size:20px;
+    }
+
+    .question-box{
+      background:#eef4ff;
+      padding:25px;
+      border-radius:18px;
+      text-align:left;
+      margin-bottom:25px;
+      line-height:1.7;
+    }
+
+    .question-box h3{
+      margin-top:0;
+      color:#103f91;
+    }
+
+    .buttons{
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    button{
+      border:none;
+      cursor:pointer;
+      transition:0.2s;
+      padding:15px 30px;
+      border-radius:999px;
+      font-size:18px;
+      font-weight:bold;
+      color:white;
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+    }
+
+    .safe-btn{
+      background:#16a34a;
+    }
+
+    .safe-btn:hover{
+      background:#15803d;
+    }
+
+    .scam-btn{
+      background:#ef4444;
+    }
+
+    .scam-btn:hover{
+      background:#dc2626;
+    }
+
+    .retry-btn{
+      background:#2563eb;
+      margin-top:20px;
+    }
+
+    .retry-btn:hover{
+      background:#1d4ed8;
+    }
+
+    .result{
+      margin-top:25px;
+      padding:25px;
+      border-radius:18px;
+      text-align:left;
+      display:none;
+    }
+
+    .correct{
+      background:#dcfce7;
+      border:2px solid #22c55e;
+    }
+
+    .wrong{
+      background:#fee2e2;
+      border:2px solid #ef4444;
+    }
+
+    .timeout{
+      background:#fef3c7;
+      border:2px solid #f59e0b;
+    }
+
+    .result ul{
+      padding-left:20px;
+    }
+
+    @media(max-width:600px){
+
+      .card{
+        padding:25px;
+      }
+
+      h1{
+        font-size:34px;
+      }
+
+      .buttons{
+        flex-direction:column;
+      }
+
+      button{
+        width:100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="logo">🎣</div>
+
+    <h1>Phish Hunt</h1>
+
+    <h2>Spot the Scam!</h2>
+
+    <div class="score-board">
+
+      <div id="score">🏆 Score: 0</div>
+
+      <div>🎯 Round 1/10</div>
+
+    </div>
+
+    <div class="timer" id="timer">
+      ⏰ Time Left: 10s
+    </div>
+
+    <div class="question-box">
+
+      <h3>Email from "PayPal Security"</h3>
+
+      <p>
+        URGENT: Your account will be suspended in 24 hours!<br><br>
+
+        Click here immediately to verify your identity:<br><br>
+
+        paypa1-secure.com/verify
+      </p>
+
+    </div>
+
+    <div class="buttons">
+
+      <button class="safe-btn" onclick="showWrong()">
+        ✓ SAFE
+      </button>
+
+      <button class="scam-btn" onclick="showCorrect()">
+        ⚠ SCAM
+      </button>
+
+    </div>
+
+    <!-- CORRECT MESSAGE -->
+
+    <div id="correct-message" class="result correct">
+
+      <h2>✅ Correct!</h2>
+
+      <p>
+        This message is a phishing scam.
+      </p>
+
+      <ul>
+        <li>Creates false urgency</li>
+        <li>Uses a suspicious website link</li>
+        <li>Threatens account suspension</li>
+        <li>Demands immediate action</li>
+      </ul>
+
+    </div>
+
+    <!-- WRONG MESSAGE -->
+
+    <div id="wrong-message" class="result wrong">
+
+      <h2>❌ Incorrect!</h2>
+
+      <p>
+        This was actually a phishing scam.
+      </p>
+
+      <ul>
+        <li>The URL is fake</li>
+        <li>The message creates panic</li>
+        <li>Urgent verification requests are suspicious</li>
+      </ul>
+
+      <button class="retry-btn" onclick="tryAgain()">
+        Try Again 🔄
+      </button>
+
+    </div>
+
+    <!-- TIMEOUT MESSAGE -->
+
+    <div id="timeout-message" class="result timeout">
+
+      <h2>⏰ Time's Up!</h2>
+
+      <p>
+        You ran out of time. Try to spot the phishing signs faster!
+      </p>
+
+      <button class="retry-btn" onclick="restartGame()">
+        Try Again
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let score = 0;
+
+    let timeLeft = 10;
+
+    let timer;
+
+    startTimer();
+
+    function startTimer(){
+
+      clearInterval(timer);
+
+      timeLeft = 10;
+
+      document.getElementById("timer").innerText =
+        `⏰ Time Left: ${timeLeft}s`;
+
+      timer = setInterval(function(){
+
+        timeLeft--;
+
+        document.getElementById("timer").innerText =
+          `⏰ Time Left: ${timeLeft}s`;
+
+        if(timeLeft <= 0){
+
+          clearInterval(timer);
+
+          showTimeout();
+        }
+
+      },1000);
+
+    }
+
+    function showCorrect(){
+
+      clearInterval(timer);
+
+      score += 10;
+
+      document.getElementById("score").innerText =
+        `🏆 Score: ${score}`;
+
+      document.getElementById("correct-message").style.display = "block";
+
+      document.getElementById("wrong-message").style.display = "none";
+
+      document.getElementById("timeout-message").style.display = "none";
+    }
+
+    function showWrong(){
+
+      clearInterval(timer);
+
+      document.getElementById("wrong-message").style.display = "block";
+
+      document.getElementById("correct-message").style.display = "none";
+
+      document.getElementById("timeout-message").style.display = "none";
+    }
+
+    function showTimeout(){
+
+      document.getElementById("timeout-message").style.display = "block";
+
+      document.getElementById("correct-message").style.display = "none";
+
+      document.getElementById("wrong-message").style.display = "none";
+    }
+
+    function tryAgain(){
+
+      document.getElementById("wrong-message").style.display = "none";
+
+      startTimer();
+    }
+
+    function restartGame(){
+
+      document.getElementById("timeout-message").style.display = "none";
+
+      startTimer();
+    }
+
+  </script>
+
+</body>
+</html>

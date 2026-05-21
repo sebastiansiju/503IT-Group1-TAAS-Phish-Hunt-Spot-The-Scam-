@@ -45,6 +45,10 @@
                             <span>🏆 <span id="currentScore">0</span></span>
                         </div>
                     </div>
+                    <div class="progress-dots" id="progressDots"></div>
+                    <div id="streakDisplay" class="streak-display" style="display: none;">
+                        <span id="streakText">🔥 Streak: 1</span>
+                    </div>
                     <div class="timer-section">
                         <div class="timer-label">
                             <span>⏱️</span>
@@ -80,6 +84,8 @@
                     <div class="result-emoji" id="resultEmoji">🎉</div>
                     <h2 class="result-title" id="resultTitle">Correct!</h2>
                     <p class="result-text" id="resultText">This message is a SCAM</p>
+                    <div id="pointsPopup" class="points-popup" style="display: none;">+5 POINTS! ⭐</div>
+                    <p id="progressMessage" class="progress-message" style="display: none;"></p>
                 </div>
                 <div id="animationContainer" class="animation-container"></div>
                 <div id="explanationBox" class="explanation-box">
@@ -99,6 +105,16 @@
             <div id="gameOverPhase" class="phase">
                 <div class="game-over-icon">🏆</div>
                 <h2 class="game-over-title">Challenge 2 Complete!</h2>
+                <div class="star-rating" id="starRating">
+                    <span class="star" id="star1">⭐</span>
+                    <span class="star" id="star2">⭐</span>
+                    <span class="star" id="star3">⭐</span>
+                </div>
+                <div class="badge-box" id="badgeBox">
+                    <div class="badge-icon" id="badgeIcon">🎖️</div>
+                    <h3 class="badge-name" id="badgeName">Phish Spotter</h3>
+                    <p class="badge-description" id="badgeDescription">You're learning the basics!</p>
+                </div>
                 <div class="final-score-box">
                     <p class="final-score-label">Final Score</p>
                     <p class="final-score-value" id="finalScore">0</p>

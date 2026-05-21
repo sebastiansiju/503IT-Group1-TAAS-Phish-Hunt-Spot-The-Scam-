@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phish Hunt: Challenge 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-card">
+            <!-- Start Menu Phase -->
+            <div id="menuPhase" class="phase active">
+                <div class="icon-container">
+                    <span class="fish-icon">🐟</span>
+                    <span class="anchor-icon">⚓</span>
+                </div>
+                <h1 class="game-title">🎣 Phish Hunt</h1>
+                <h2 class="game-subtitle">Challenge 2: Quick Quiz!</h2>
+                <div class="info-box">
+                    <p class="info-text">A shorter Phish Hunt challenge! 🕵️</p>
+                    <ul class="info-list">
+                        <li>✓ 3 scenarios to identify</li>
+                        <li>✓ 10 seconds per round</li>
+                        <li>✓ +5 points for correct answers</li>
+                        <li>✓ Learn about red flags</li>
+                    </ul>
+                </div>
+                <div id="highScoreDisplay" class="high-score-box" style="display: none;">
+                    <span class="award-icon">🏆</span>
+                    <span class="high-score-text">High Score: <span id="highScoreValue">0</span></span>
+                </div>
+                <button onclick="startGame()" class="btn btn-primary btn-large">Start Fishing! 🎣</button>
+            </div>
+
+            <!-- Playing Phase -->
+            <div id="playingPhase" class="phase">
+                <div class="game-header">
+                    <div class="header-stats">
+                        <div class="round-info">
+                            <span>🎯</span>
+                            <span id="roundDisplay">Round 1/3</span>
+                        </div>
+                        <div class="score-display">
+                            <span>🏆 <span id="currentScore">0</span></span>
+                        </div>
+                    </div>
+                    <div class="timer-section">
+                        <div class="timer-label">
+                            <span>⏱️</span>
+                            <span id="timeLeft">10s</span>
+                        </div>
+                        <div class="timer-bar">
+                            <div id="timerProgress" class="timer-progress"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scenario-container">
+                    <div class="scenario-box">
+                        <h3 id="scenarioTitle" class="scenario-title">Scenario Title</h3>
+                        <p id="scenarioMessage" class="scenario-message">Scenario message goes here...</p>
+                    </div>
+                    <div class="answer-buttons">
+                        <button onclick="handleAnswer('safe')" class="btn btn-safe">
+                            <span class="btn-icon">✓</span>
+                            <span>SAFE</span>
+                        </button>
+                        <button onclick="handleAnswer('scam')" class="btn btn-scam">
+                            <span class="btn-icon">⚠</span>
+                            <span>SCAM</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="water-animation"></div>
+            </div>
+
+            <!-- Feedback Phase -->
+            <div id="feedbackPhase" class="phase">
+                <div id="resultHeader" class="result-header">
+                    <div class="result-emoji" id="resultEmoji">🎉</div>
+                    <h2 class="result-title" id="resultTitle">Correct!</h2>
+                    <p class="result-text" id="resultText">This message is a SCAM</p>
+                </div>
+                <div id="animationContainer" class="animation-container"></div>
+                <div id="explanationBox" class="explanation-box">
+                    <h3 class="explanation-title" id="explanationTitle">🚩 Red Flags:</h3>
+                    <ul id="explanationList" class="explanation-list"></ul>
+                </div>
+                <div id="feedbackScoreDisplay" class="feedback-score">
+                    <p>Current Score: <strong id="feedbackScore">0</strong></p>
+                </div>
+                <button id="continueBtn" onclick="nextRound()" class="btn btn-primary btn-full">Next Round →</button>
+            </div>
+
+            <!-- Game Over Phase -->
+            <div id="gameOverPhase" class="phase">
+                <div class="game-over-icon">🏆</div>
+                <h2 class="game-over-title">Challenge 2 Complete!</h2>
+                <div class="final-score-box">
+                    <p class="final-score-label">Final Score</p>
+                    <p class="final-score-value" id="finalScore">0</p>
+                    <p class="final-score-subtitle">out of 15 possible points</p>
+                </div>
+                <div id="newHighScoreBadge" class="new-high-score" style="display: none;">
+                    <p>🌟 New High Score! 🌟</p>
+                </div>
+                <div class="takeaways-box">
+                    <h3 class="takeaways-title">🎓 Key Takeaways:</h3>
+                    <ul class="takeaways-list">
+                        <li>• Always check sender addresses carefully</li>
+                        <li>• Be suspicious of urgent or threatening messages</li>
+                        <li>• Hover over links before clicking</li>
+                        <li>• Never share passwords via email or text</li>
+                        <li>• When in doubt, contact the company directly</li>
+                    </ul>
+                </div>
+                <button onclick="startGame()" class="btn btn-primary btn-large">Play Again! 🎣</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

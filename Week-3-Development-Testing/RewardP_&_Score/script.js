@@ -50,6 +50,9 @@ let gameState = {
     selectedAnswer: null,
     isCorrect: null,
     isTimeout: false,
+    streak: 0,
+    bestStreak: 0,
+    roundResults: [],
     highScore: parseInt(localStorage.getItem('phishHuntChallenge2HighScore') || '0')
 };
 
@@ -77,6 +80,9 @@ function startGame() {
     gameState.selectedAnswer = null;
     gameState.isCorrect = null;
     gameState.isTimeout = false;
+    gameState.streak = 0;
+    gameState.bestStreak = 0;
+    gameState.roundResults = [];
 
     showPhase('playing');
     loadRound();
@@ -91,6 +97,18 @@ function loadRound() {
     document.getElementById('scenarioTitle').textContent = scenario.title;
     document.getElementById('scenarioMessage').textContent = scenario.message;
 
+    // Render progress dots
+    renderProgressDots();
+
+    // Show streak if 2+ in a row
+    const streakDisplay = document.getElementById('streakDisplay');
+    if (gameState.streak >= 2) {
+        streakDisplay.style.display = 'inline-block';
+        document.getElementById('streakText').textContent = `🔥 Streak: ${gameState.streak} in a row!`;
+    } else {
+        streakDisplay.style.display = 'none';
+    }
+
     // Reset timer display
     gameState.timeLeft = 10;
     document.getElementById('timeLeft').textContent = '10s';
@@ -98,6 +116,22 @@ function loadRound() {
 
     // Start timer
     startTimer();
+}
+
+// Render the progress dots showing rounds played
+function renderProgressDots() {
+    const container = document.getElementById('progressDots');
+    container.innerHTML = '';
+    for (let i = 0; i < quizScenarios.length; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'progress-dot';
+        if (i < gameState.roundResults.length) {
+            dot.classList.add(gameState.roundResults[i] ? 'completed-correct' : 'completed-wrong');
+        } else if (i === gameState.currentRound) {
+            dot.classList.add('current');
+        }
+        container.appendChild(dot);
+    }
 }
 
 // Timer Function
@@ -119,6 +153,7 @@ function startTimer() {
 // Handle Timeout
 function handleTimeout() {
     gameState.isTimeout = true;
+    handleTimeoutResult();
     showFeedback();
 }
 
@@ -132,9 +167,22 @@ function handleAnswer(answer) {
 
     if (gameState.isCorrect) {
         gameState.score += 5;
+        gameState.streak++;
+        if (gameState.streak > gameState.bestStreak) {
+            gameState.bestStreak = gameState.streak;
+        }
+    } else {
+        gameState.streak = 0;
     }
 
+    gameState.roundResults.push(gameState.isCorrect);
     showFeedback();
+}
+
+// Handle Timeout — also resets streak
+function handleTimeoutResult() {
+    gameState.streak = 0;
+    gameState.roundResults.push(false);
 }
 
 // Build the explanation list HTML for a scenario
@@ -183,10 +231,16 @@ function showFeedback() {
     const explanationBox = document.getElementById('explanationBox');
     const feedbackScoreDisplay = document.getElementById('feedbackScoreDisplay');
     const continueBtn = document.getElementById('continueBtn');
+    const pointsPopup = document.getElementById('pointsPopup');
+    const progressMessage = document.getElementById('progressMessage');
 
     // Clear previous classes
     resultHeader.className = 'result-header';
     resultTitle.className = 'result-title';
+
+    // Hide reward elements by default — only show on correct
+    pointsPopup.style.display = 'none';
+    progressMessage.style.display = 'none';
 
     if (gameState.isTimeout) {
         resultHeader.classList.add('timeout');
@@ -201,6 +255,13 @@ function showFeedback() {
         resultEmoji.textContent = '🎉';
         resultTitle.textContent = 'Correct!';
         resultText.textContent = `This message is a ${scenario.type.toUpperCase()}`;
+
+        // Show the +5 points popup
+        pointsPopup.style.display = 'block';
+
+        // Show encouraging progress message based on streak / progress
+        progressMessage.style.display = 'block';
+        progressMessage.textContent = getProgressMessage();
 
         if (scenario.type === 'scam') {
             animationContainer.innerHTML = `
@@ -250,6 +311,21 @@ function showFeedback() {
     continueBtn.onclick = nextRound;
 }
 
+// Get an encouraging progress message based on streak / round
+function getProgressMessage() {
+    if (gameState.streak >= 3) {
+        return '🔥 Triple streak! You\'re a phishing expert!';
+    } else if (gameState.streak === 2) {
+        return '⚡ Two in a row — keep it up!';
+    } else if (gameState.currentRound === quizScenarios.length - 1) {
+        return '🎯 Nice finish! Let\'s see your final score.';
+    } else if (gameState.currentRound === 0) {
+        return '🚀 Great start! Keep going!';
+    } else {
+        return '👍 Well spotted!';
+    }
+}
+
 // Next Round
 function nextRound() {
     if (gameState.currentRound < quizScenarios.length - 1) {
@@ -281,7 +357,77 @@ function endGame() {
         newHighScoreBadge.style.display = 'none';
     }
 
+    // Award stars based on score (3 questions × 5 points = 15 max)
+    awardStars();
+
+    // Award badge based on performance
+    awardBadge();
+
     showPhase('gameOver');
+}
+
+// Award 1-3 stars based on percentage correct
+function awardStars() {
+    const maxScore = quizScenarios.length * 5;
+    const percent = (gameState.score / maxScore) * 100;
+
+    // Reset all stars
+    for (let i = 1; i <= 3; i++) {
+        document.getElementById('star' + i).classList.remove('earned');
+    }
+
+    let starsEarned = 0;
+    if (percent === 100) starsEarned = 3;
+    else if (percent >= 66) starsEarned = 2;
+    else if (percent >= 33) starsEarned = 1;
+
+    // Add 'earned' class with a slight delay so animation runs
+    setTimeout(() => {
+        for (let i = 1; i <= starsEarned; i++) {
+            document.getElementById('star' + i).classList.add('earned');
+        }
+    }, 100);
+}
+
+// Award a badge based on score
+function awardBadge() {
+    const maxScore = quizScenarios.length * 5;
+    const percent = (gameState.score / maxScore) * 100;
+
+    const badgeIcon = document.getElementById('badgeIcon');
+    const badgeName = document.getElementById('badgeName');
+    const badgeDescription = document.getElementById('badgeDescription');
+
+    let badge;
+    if (percent === 100) {
+        badge = {
+            icon: '🏆',
+            name: 'Master Phish Hunter',
+            description: 'Perfect score! No scam can fool you.'
+        };
+    } else if (percent >= 66) {
+        badge = {
+            icon: '🥇',
+            name: 'Cyber Sleuth',
+            description: 'Great work! You spot most scams.'
+        };
+    } else if (percent >= 33) {
+        badge = {
+            icon: '🎖️',
+            name: 'Phish Spotter',
+            description: 'Good start! Keep learning the red flags.'
+        };
+    } else {
+        badge = {
+            icon: '🐟',
+            name: 'Rookie Hunter',
+            description: 'Don\'t give up! Try again and study the red flags.'
+        };
+    }
+
+    badgeIcon.textContent = badge.icon;
+    badgeName.textContent = badge.name;
+    badgeDescription.textContent = badge.description;
 }
 
 function updateHighScoreDisplay() {

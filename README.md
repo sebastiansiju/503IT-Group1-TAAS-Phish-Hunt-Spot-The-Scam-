@@ -37,7 +37,28 @@ UI/UX Points for Age Group 14–16
 -Friendly and educational game experience
 -Smooth navigation between screens
 -Easy readability with clear fonts and spacing
--Designed to improve phishing awareness in teenagers
+-Designed to improve phishing awareness in teenagers  
+
+# Phish Hunt — Challenge 2
+
+A shorter standalone version of the Phish Hunt cyber-safety game. Players are given 3 scenarios and must decide if each one is **SAFE** or a **SCAM** within 10 seconds.
+
+## How to play
+1. Open `index.html` in any web browser
+2. Click **Start Fishing!**
+3. Read each scenario carefully
+4. Tap **SAFE** or **SCAM** before the timer runs out
+5. Earn 5 points per correct answer (15 possible)
+
+## Files
+- `index.html` — page structure
+- `style.css` — styling and animations
+- `script.js` — game logic and scenarios
+
+## Topics covered
+- QR code ("quishing") scams
+- Legitimate security notifications
+- In-game / gaming account theft scams
 
 
 

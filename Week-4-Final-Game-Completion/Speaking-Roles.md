@@ -3,7 +3,7 @@
 ## Project Information
 
 **Project:** Phish Hunt — Spot the Scam!
-**Date:** [Add Presentation Date]
+**Date:** 28/05/2026
 
 This document outlines the speaking responsibilities for the final project presentation. Each team member has been assigned specific sections to ensure equal participation and smooth presentation flow.
 

@@ -50,7 +50,7 @@ This document provides a clear reference for locating all evidence related to th
 | Source Code                  | `final-prototype/index.html`, `style.css`, `script.js` |
 | Gameplay Screenshots         | `final-prototype-screenshots/`                         |
 | Final Playable Build         | `final-prototype/`                                     |
-| GitHub Repository            | [Add Repository Link]                                  |
+| GitHub Repository            |(https://github.com/sebastiansiju/503IT_GROUP_1_CYBERSECURITY_KID_GAME-)|
 | Live Game Link (if deployed) | `https://[your-username].github.io/[repo-name]/`       |
 
 ---

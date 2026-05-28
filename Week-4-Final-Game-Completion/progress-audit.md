@@ -1,49 +1,104 @@
-...
-# Project Audit Report: Phish Hunt: Spot the Scam
-**Date:** May 28, 2026  
-**Project Status:** Working Model / Prototype Ready  
-**Target Audience:** Teenagers / Kids Awareness  
+# Progress Audit — Week 4 Final Game Completion
+
+## Project Information
+
+**Project:** Phish Hunt — Spot the Scam!
+**Target Audience:** Ages 14–16
+**Technology Used:** HTML, CSS, JavaScript
+**Date of Audit:** [Add Date]
 
 ---
 
-## 1. Executive Summary
-"Phish Hunt: Spot the Scam" is an interactive educational game designed to teach children and teenagers how to identify digital threats and phishing tactics. The project has successfully moved from the conceptual phase to a fully functional working model. Recent development cycles focused on enhancing user experience (UX) and eliminating critical input bugs to ensure the gameplay is smooth, accessible, and engaging for the target audience.
+# 1. Purpose of This Audit
+
+This audit was conducted to review the completion status of the Phish Hunt project before final submission and presentation. The team evaluated all planned features, improvements, testing outcomes, and additional enhancements completed during Week 4.
+
+The purpose of this document is to:
+
+* Track project completion progress
+* Compare final outcomes against the original build plan
+* Identify completed improvements and remaining tasks
+* Record the final state of the project before submission
 
 ---
 
-## 2. Recent Progress & Major Updates
+# 2. Build Plan Status Check
 
-### 🔄 Working Model Achieved
-* The core gameplay loop, scoring systems, and educational phishing scenarios are now fully operational.
-* The application is stable and ready for internal testing or demonstration.
-
-### 🛠️ Key Bug Fixes & Optimizations
-* **Keyboard Functionality Improvements:** Fixed underlying input bugs where key presses were either dropping or misfiring. 
-* **Accessibility & Comfort Adjustments:** Reconfigured the controls to be more responsive and intuitive, ensuring younger users can navigate the game without technical frustration.
-
----
-
-## 3. Core Component Audit
-
-| Component | Status | Notes |
-| :--- | :--- | :--- |
-| **User Interface (UI)** | 🟢 Stable | Visually clear and tailored for a younger audience. |
-| **Game Logic** | 🟢 Functional | Scam detection scenarios trigger and score correctly. |
-| **Input Controls** | 🟡 Improved | Keyboard functions fixed; pending final user comfort testing. |
-| **Security/Code Quality**| 🟡 Reviewing | Base code is functional; optimization is ongoing. |
+| Prototype Part             | Required Improvement                        | Status      | Notes                                                           |
+| -------------------------- | ------------------------------------------- | ----------- | --------------------------------------------------------------- |
+| Welcome / Instructions     | Improve instructions and game introduction  | ✅ Completed | Added animated welcome screen and “How to Play” section         |
+| Challenge System           | Fix gameplay and interaction issues         | ✅ Completed | All major gameplay bugs fixed                                   |
+| Additional Features        | Add new phishing scenarios and interactions | ✅ Completed | Added QR-code phishing challenges and difficulty levels         |
+| Feedback System            | Improve learning feedback after answers     | ✅ Completed | Detailed explanations shown after every answer                  |
+| Score and Reward System    | Improve player progression and rewards      | ✅ Completed | Added streak system, accuracy stats, and leaderboard            |
+| Accessibility Improvements | Improve readability and controls            | ✅ Completed | Added keyboard controls, swipe gestures, and better UI contrast |
 
 ---
 
-## 4. Current Vulnerability & Risk Assessment
+# 3. Features Already Working Before Week 4
 
-### ⚠️ Known Issues & Usability Constraints
-* **Input Testing:** While keyboard comfort has been significantly improved, it still requires testing across different web browsers to ensure consistent latency.
-* **Edge Case Scenarios:** Rapid key-smashing (common with younger players) needs further stress testing to ensure the game logic doesn't freeze.
+The following core systems were already functional before Week 4 development began:
+
+* Main menu and start screen
+* Core gameplay loop
+* 20-question challenge format
+* Countdown timer system
+* Score tracking system
+* Safe / Scam answer buttons
+* Browser-based leaderboard storage
+* Game-over and restart functionality
 
 ---
 
-## 5. Next Steps & Action Plan
+# 4. Improvements Completed During Week 4
 
-1. **User Acceptance Testing (UAT):** Run a small trial session with the target demographic (kids/teenagers) to validate the new keyboard comfort changes.
-2. **Code Refactoring:** Clean up the input handling script to ensure it remains modular and well-documented.
-3. **Deployment Prep:** Finalize the GitHub repository documentation (README.md) for public showcase.
+The team completed several major improvements and polish features during Week 4, including:
+
+### Gameplay Enhancements
+
+* Added a 23-scenario question pool with random selection
+* Implemented 4 difficulty levels:
+
+  * Easy
+  * Medium
+  * Hard
+  * Expert
+* Reduced timer duration based on difficulty level
+
+### New Features
+
+* Added QR-code phishing scam scenarios
+* Added streak tracking system
+* Added “On Fire” streak effect
+* Added best streak and accuracy percentage statistics
+* Added level-up notification system
+
+### Accessibility Improvements
+
+* Added keyboard controls
+* Added swipe gesture support for mobile devices
+* Improved text readability and colour contrast
+* Simplified language for the target age group
+
+### Finalisation Tasks
+
+* Final bug fixing
+* Gameplay testing
+* Documentation completion
+* Presentation preparation
+
+---
+
+# 5. Overall Progress Summary
+
+At the beginning of Week 4, the project was approximately 85–90% complete. Most core gameplay systems were functional, with remaining work focused on polishing, accessibility improvements, difficulty balancing, testing, and documentation.
+
+By the end of Week 4:
+
+* All planned build requirements were completed
+* Major gameplay bugs were resolved
+* Additional gameplay improvements were added
+* Documentation and presentation materials were prepared
+* The final game build became stable and fully playable
+
+The project is now ready for final presentation and submission.

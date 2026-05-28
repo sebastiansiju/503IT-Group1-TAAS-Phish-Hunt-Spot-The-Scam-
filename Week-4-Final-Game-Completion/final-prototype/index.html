@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phish Hunt: Spot the Scam!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Level-up toast -->
+    <div id="levelUpToast" class="level-up-toast">
+        <span id="levelUpText">⬆️ Level Up!</span>
+    </div>
+
+    <!-- ══════════════ HOW TO PLAY MODAL ══════════════ -->
+    <div id="instructionsModal" class="modal-overlay" onclick="closeInstructions(event)">
+        <div class="modal-card ocean-modal">
+            <div class="ocean-bubbles" aria-hidden="true">
+                <span class="bubble b1"></span><span class="bubble b2"></span>
+                <span class="bubble b3"></span><span class="bubble b4"></span>
+                <span class="bubble b5"></span><span class="bubble b6"></span>
+                <span class="bubble b7"></span><span class="bubble b8"></span>
+            </div>
+            <button class="modal-close" onclick="closeInstructionsBtn()">&#10005;</button>
+            <div class="fish-mascot" aria-hidden="true">🐟</div>
+            <h2 class="ocean-title">🎣 HOW TO PLAY</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-num">1</span>
+                    <div class="step-content">
+                        <span class="step-icon">📩</span>
+                        <div>
+                            <p class="step-title">Read the message</p>
+                            <p class="step-desc">Look carefully at emails, texts, websites, or QR codes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">2</span>
+                    <div class="step-content">
+                        <span class="step-icon">🔍</span>
+                        <div>
+                            <p class="step-title">Spot phishing clues</p>
+                            <p class="step-desc">Find fake links, urgent language, spelling mistakes, or suspicious senders.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">3</span>
+                    <div class="step-content">
+                        <span class="step-icon">✅</span>
+                        <div>
+                            <p class="step-title">Make your choice</p>
+                            <p class="step-desc">Decide if the message is <strong>SAFE</strong> or a <strong>SCAM</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">4</span>
+                    <div class="step-content">
+                        <span class="step-icon">🏆</span>
+                        <div>
+                            <p class="step-title">Earn points &amp; streaks</p>
+                            <p class="step-desc">+5 per correct answer. Keep a streak going for bonus bragging rights!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">5</span>
+                    <div class="step-content">
+                        <span class="step-icon">🚀</span>
+                        <div>
+                            <p class="step-title">Level up</p>
+                            <p class="step-desc">3 levels — timer gets shorter as difficulty increases.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pro-tip-bar">
+                <span class="pro-tip-bulb">💡</span>
+                <p><span class="pro-tip-label">Pro Tip:</span> Think before you click!</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-neon-start" onclick="closeInstructionsBtn(); startGame();">🚀 Start Game</button>
+                <button class="btn btn-neon-gotit" onclick="closeInstructionsBtn()">✓ Got It!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ MAIN GAME ══════════════ -->
+    <div class="game-container">
+        <div class="game-card" id="gameCard">
+
+            <!-- ── MENU PHASE ─────────────────────────── -->
+            <div id="menuPhase" class="phase active">
+
+                <!-- Ocean backdrop (full-bleed behind everything) -->
+                <div class="ocean-deco" aria-hidden="true">
+                    <!-- Rising background bubbles -->
+                    <span class="bg-bub bb1"></span><span class="bg-bub bb2"></span>
+                    <span class="bg-bub bb3"></span><span class="bg-bub bb4"></span>
+                    <span class="bg-bub bb5"></span><span class="bg-bub bb6"></span>
+                    <span class="bg-bub bb7"></span>
+                    <!-- Drifting background fish -->
+                    <span class="bg-fish bf1">🐠</span>
+                    <span class="bg-fish bf2">🐟</span>
+                    <!-- Ocean floor -->
+                    <div class="ocean-floor-deco">
+                        <!-- Left seaweed -->
+                        <svg class="seaweed-svg svw-left" viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M22 210 C6 182 30 160 14 126 C0 96 26 74 10 44 C-1 22 18 6 24 0" stroke="#22c55e" stroke-width="8" fill="none" stroke-linecap="round"/>
+                            <path d="M58 210 C72 174 48 152 64 118 C78 88 54 66 70 36 C80 14 65 2 58 0" stroke="#16a34a" stroke-width="7" fill="none" stroke-linecap="round"/>
+                            <path d="M94 210 C106 180 84 162 98 132 C110 106 88 88 102 60 C111 38 97 20 92 8" stroke="#4ade80" stroke-width="6" fill="none" stroke-linecap="round"/>
+                            <ellipse cx="6" cy="72" rx="17" ry="9" fill="#22c55e" opacity="0.55" transform="rotate(-38 6 72)"/>
+                            <ellipse cx="26" cy="100" rx="14" ry="7" fill="#16a34a" opacity="0.5" transform="rotate(30 26 100)"/>
+                        </svg>
+                        <!-- Right seaweed -->
+                        <svg class="seaweed-svg svw-right" viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M108 210 C124 182 100 160 116 126 C130 96 104 74 120 44 C131 22 112 6 106 0" stroke="#22c55e" stroke-width="8" fill="none" stroke-linecap="round"/>
+                            <path d="M72 210 C58 174 82 152 66 118 C52 88 76 66 60 36 C50 14 65 2 72 0" stroke="#16a34a" stroke-width="7" fill="none" stroke-linecap="round"/>
+                            <path d="M36 210 C24 180 46 162 32 132 C20 106 42 88 28 60 C19 38 33 20 38 8" stroke="#4ade80" stroke-width="6" fill="none" stroke-linecap="round"/>
+                            <ellipse cx="124" cy="72" rx="17" ry="9" fill="#22c55e" opacity="0.55" transform="rotate(38 124 72)"/>
+                            <ellipse cx="104" cy="100" rx="14" ry="7" fill="#16a34a" opacity="0.5" transform="rotate(-30 104 100)"/>
+                        </svg>
+                        <!-- Center floor items -->
+                        <div class="floor-center-items">
+                            <span class="floor-coral">🪸</span>
+                            <span class="floor-rock">🪨</span>
+                            <span class="floor-coral floor-coral-lg">🪸</span>
+                            <span class="floor-rock">🪨</span>
+                            <span class="floor-coral">🪸</span>
+                        </div>
+                        <div class="sand-strip"></div>
+                    </div>
+                </div>
+
+                <!-- Top bar -->
+                <div class="menu-topbar">
+                    <button class="btn-instructions" onclick="openInstructions()">
+                        <span class="instructions-icon">?</span>
+                        Instructions
+                    </button>
+                </div>
+
+                <!-- Fish mascot hero -->
+                <div class="fish-hero">
+                    <span class="sparkle sp1">✦</span>
+                    <span class="sparkle sp2">★</span>
+                    <span class="sparkle sp3">✦</span>
+                    <span class="sparkle sp4">·</span>
+                    <div class="fish-mascot-home">🐟</div>
+                    <span class="bubble-near bn1"></span>
+                    <span class="bubble-near bn2"></span>
+                    <span class="bubble-near bn3"></span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="game-title-hero">
+                    <span class="title-phish">PHISH</span><span class="title-hunt"> HUNT</span>
+                    <span class="title-colon">: Spot the Scam!</span>
+                </h1>
+
+                <!-- Tagline -->
+                <p class="game-tagline-hero">
+                    Test your skills at spotting<br>
+                    <span class="tagline-accent">phishing scams!</span>
+                </p>
+
+                <!-- High score (only shown if exists) -->
+                <div id="highScoreDisplay" class="high-score-box" style="display: none;">
+                    <span>🏆</span>
+                    <span class="high-score-text">High Score: <span id="highScoreValue">0</span></span>
+                </div>
+
+                <!-- CTA button -->
+                <button onclick="startGame()" class="btn-start-fishing">
+                    Start Fishing! 🎣
+                </button>
+
+                <!-- Feature strip -->
+                <div class="feature-strip">
+                    <div class="feature-pill">
+                        <span class="fp-icon">🛡️</span>
+                        <div><p class="fp-name">Learn</p><p class="fp-desc">Stay smart online</p></div>
+                    </div>
+                    <div class="feature-pill">
+                        <span class="fp-icon">🎯</span>
+                        <div><p class="fp-name">Spot</p><p class="fp-desc">Identify red flags</p></div>
+                    </div>
+                    <div class="feature-pill">
+                        <span class="fp-icon">🏆</span>
+                        <div><p class="fp-name">Score</p><p class="fp-desc">Challenge yourself</p></div>
+                    </div>
+                    <div class="feature-pill">
+                        <span class="fp-icon">⭐</span>
+                        <div><p class="fp-name">Stay Safe</p><p class="fp-desc">Protect yourself</p></div>
+                    </div>
+                </div>
+            </div><!-- /menuPhase -->
+
+            <!-- ── PLAYING PHASE ───────────────────────── -->
+            <div id="playingPhase" class="phase">
+
+                <!-- ─ Header ─ -->
+                <div class="game-header">
+                    <div class="hdr-top">
+                        <div class="level-badge" id="levelBadge">
+                            <span class="level-dot" id="levelDot"></span>
+                            <span class="level-prefix">Level:</span>
+                            <span id="levelName">Easy</span>
+                        </div>
+                        <div class="round-counter">
+                            <span class="rc-num" id="roundDisplay">1</span>
+                            <span class="rc-total">/20</span>
+                        </div>
+                        <div class="score-display">🏆 <span id="currentScore">0</span></div>
+                    </div>
+                    <div class="hdr-mid">
+                        <div class="streak-display" id="streakDisplay">
+                            🔥 Streak: <span id="streakCount">0</span>
+                        </div>
+                        <div class="timer-clock">⏱️ <span id="timeLeft">12s</span></div>
+                    </div>
+                    <!-- Timer bar -->
+                    <div class="timer-bar">
+                        <div id="timerProgress" class="timer-progress"></div>
+                    </div>
+                    <!-- 4-level segment bar -->
+                    <div class="level-seg-bar" aria-hidden="true">
+                        <div class="lsb-seg" id="lsbEasy"   title="Easy (1–5)"></div>
+                        <div class="lsb-seg" id="lsbMed"    title="Medium (6–10)"></div>
+                        <div class="lsb-seg" id="lsbHard"   title="Hard (11–15)"></div>
+                        <div class="lsb-seg" id="lsbExpert" title="Expert (16–20)"></div>
+                    </div>
+                </div>
+
+                <!-- ─ Card deck ─ -->
+                <div class="card-deck-wrap">
+                    <div class="ghost-card gc2" aria-hidden="true"></div>
+                    <div class="ghost-card gc1" aria-hidden="true"></div>
+                    <div class="scenario-card" id="scenarioCard">
+                        <div class="card-inner">
+                            <div class="card-type-row">
+                                <span id="cardTypeIcon" class="card-type-icon">📧</span>
+                                <span id="cardTypeLabel" class="card-type-label">Email</span>
+                                <div id="qrBadge" class="qr-badge" style="display:none;">📱 QR Code Challenge</div>
+                            </div>
+                            <h3 id="scenarioTitle" class="scenario-title"></h3>
+                            <p id="scenarioMessage" class="scenario-message"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ─ Answer buttons ─ -->
+                <div class="card-actions">
+                    <button onclick="handleAnswer('safe')" class="btn btn-safe" id="btnSafe">
+                        <kbd class="btn-key">←</kbd>
+                        <span class="btn-icon">✓</span>
+                        <span>SAFE</span>
+                    </button>
+                    <button onclick="handleAnswer('scam')" class="btn btn-scam" id="btnScam">
+                        <span>SCAM</span>
+                        <span class="btn-icon">⚠</span>
+                        <kbd class="btn-key">→</kbd>
+                    </button>
+                </div>
+
+                <!-- ─ Hint bar (keyboard on desktop, swipe on mobile) ─ -->
+                <div class="hint-bar">
+                    <div class="hint-keyboard">
+                        <span class="kb-side kb-left"><kbd>←</kbd> <span>SAFE</span></span>
+                        <span class="kb-label">arrow keys</span>
+                        <span class="kb-side kb-right"><span>SCAM</span> <kbd>→</kbd></span>
+                    </div>
+                    <div class="hint-swipe">
+                        <span class="swipe-side">👈 Swipe left = <strong>SAFE</strong></span>
+                        <span class="swipe-dot">·</span>
+                        <span class="swipe-side"><strong>SCAM</strong> = Swipe right 👉</span>
+                    </div>
+                </div>
+
+                <div class="water-animation"></div>
+            </div><!-- /playingPhase -->
+
+            <!-- ── FEEDBACK PHASE ──────────────────────── -->
+            <div id="feedbackPhase" class="phase">
+                <div id="resultHeader" class="result-header">
+                    <div class="result-emoji" id="resultEmoji">🎉</div>
+                    <h2 class="result-title" id="resultTitle">Correct!</h2>
+                    <p class="result-text" id="resultText">This message is a SCAM</p>
+                </div>
+                <div id="streakFeedback" class="streak-feedback" style="display:none;"></div>
+                <div id="animationContainer" class="animation-container"></div>
+                <div id="explanationBox" class="explanation-box">
+                    <h3 class="explanation-title" id="explanationTitle">🚩 Red Flags:</h3>
+                    <ul id="explanationList" class="explanation-list"></ul>
+                </div>
+                <div id="feedbackScoreDisplay" class="feedback-score">
+                    <p>Current Score: <strong id="feedbackScore">0</strong></p>
+                </div>
+                <button id="continueBtn" onclick="nextRound()" class="btn btn-primary btn-full">Next Round →</button>
+            </div><!-- /feedbackPhase -->
+
+            <!-- ── GAME OVER PHASE ─────────────────────── -->
+            <div id="gameOverPhase" class="phase">
+                <div class="game-over-icon">🏆</div>
+                <h2 class="game-over-title">Game Complete!</h2>
+
+                <div class="final-score-box">
+                    <p class="final-score-label">Final Score</p>
+                    <p class="final-score-value" id="finalScore">0</p>
+                    <p class="final-score-subtitle">out of 100 possible points</p>
+                </div>
+
+                <!-- Stats row: streak + accuracy -->
+                <div class="stats-row">
+                    <div class="stat-box stat-fire">
+                        <p class="stat-val" id="maxStreakValue">0</p>
+                        <p class="stat-lbl">🔥 Best Streak</p>
+                    </div>
+                    <div class="stat-box stat-check">
+                        <p class="stat-val" id="accuracyValue">0%</p>
+                        <p class="stat-lbl">✅ Accuracy</p>
+                    </div>
+                </div>
+
+                <div id="newHighScoreBadge" class="new-high-score" style="display: none;">
+                    <p>🌟 New High Score! 🌟</p>
+                </div>
+
+                <div id="nameInputBox" class="name-input-box" style="display: none;">
+                    <h3 class="name-input-title">🎉 Save Your Score!</h3>
+                    <div class="name-input-group">
+                        <input type="text" id="playerNameInput" placeholder="Enter your name..." maxlength="20" />
+                        <button onclick="saveToLeaderboard()" class="btn btn-save">Save</button>
+                    </div>
+                </div>
+
+                <div id="leaderboardContainer" style="display: none;">
+                    <h3 class="leaderboard-title"><span>🏆</span> Leaderboard</h3>
+                    <div class="leaderboard-box">
+                        <div id="leaderboardList" class="leaderboard-list"></div>
+                    </div>
+                </div>
+
+                <div class="takeaways-box">
+                    <h3 class="takeaways-title">🎓 Key Takeaways:</h3>
+                    <ul class="takeaways-list">
+                        <li>• Always check sender addresses carefully</li>
+                        <li>• Be suspicious of urgent or threatening messages</li>
+                        <li>• Never scan random QR codes without checking the URL</li>
+                        <li>• Never share passwords via email, text, or QR code</li>
+                        <li>• When in doubt, contact the company directly</li>
+                    </ul>
+                </div>
+
+                <button onclick="tryPlayAgain()" class="btn btn-primary btn-large">Play Again! 🎣</button>
+            </div><!-- /gameOverPhase -->
+
+        </div><!-- /game-card -->
+    </div><!-- /game-container -->
+
+    <script src="script.js"></script>
+</body>
+</html>

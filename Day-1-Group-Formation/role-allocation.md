@@ -7,4 +7,4 @@
 | Project Coordinator | Tasnim, Sebastian | Track tasks, deadlines, and action plan. |
 | Research Lead | Aakash, Tasnim | Lead topic research and source checking. |
 | Game Design Lead | Abiral, Aakash, Tasnim | Lead game idea, rules, and learning flow. |
-| Prototype / GitHub Lead |  | Plan sketches, folders, repo, and commits. |
+| Prototype / GitHub Lead | Abiral,Aakash | Plan sketches, folders, repo, and commits. |

@@ -1,4 +1,4 @@
-# Day 2 Reflection
+# Day 2 reflection
 
 | Reflection Question | Group Answer |
 |---------------------|--------------|

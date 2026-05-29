@@ -1,5 +1,5 @@
 Meeting Record
-Project: Phish Hunt: Spot the Scam
+Project: Phish Hunt - Spot the Scam
 
 Date: 15 May 2026
 Duration: 5 Minutes

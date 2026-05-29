@@ -1,4 +1,4 @@
-### Additional Gameplay Features
+## Additional Gameplay Features
 - Multiple phishing scenarios
 - Development of Challenge 2 with increased phishing difficulty
 - Round progression system

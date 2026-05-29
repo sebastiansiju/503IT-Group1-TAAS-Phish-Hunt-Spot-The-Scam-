@@ -1,14 +1,14 @@
 # Meeting Minutes: Project Initiation & Planning
 
 **Date:** May 29, 2026  
-**Project:** Phish Hunt: Spot the Scam  
+**Project:** Phish Hunt: Spot the Scam
 **Meeting No:** 01  
 
 ---
 
 ## 1. Attendees
+*   **Tasnim** (Team Leader)
 *   **Abiral** (Project Coordinator)
-*   **Tasnim**
 *   **Sebastian**
 *   **Aakash**
 
@@ -16,36 +16,37 @@
 
 ## 2. Agenda Items
 1.  **Topic Selection:** Finalizing the project direction and scope.
-2.  **Role Allocation:** Assigning responsibilities based on member strengths.
-3.  **Action Plan:** Setting immediate next steps for the development phase.
+2.  **Role Allocation:** Defining leadership and individual responsibilities.
+3.  **Action Plan:** Immediate next steps for project documentation.
 
 ---
 
 ## 3. Discussion & Decisions
 
 ### **Topic Selection**
-The group discussed several concepts revolving around cybersecurity education. It was finalized that the project will focus on **"Phish Hunt: Spot the Scam"**, a gamified approach to phishing awareness. 
-*   **Goal:** To create an interactive experience that teaches users how to identify malicious links and emails.
-*   **Scope:** Development of a storyboard, game mechanics, and a final presentation.
+The group finalized the project topic as **"Phish Hunt: Spot the Scam"**. 
+*   **Objective:** To develop a game-based awareness tool for identifying phishing scams.
+*   **Methodology:** Utilizing Canva for ideas and storyboarding, and Markdown for technical reports.
 
 ### **Role Allocation**
-To ensure organized progress, the following roles were established:
-*   **Abiral:** Project Coordinator & Lead Presenter. Responsible for group representation, filling checklists, and documentation oversight.
-*   **Tasnim:** Research & Report Development. Lead on drafting the project report and documentation.
-*   **Sebastian:** Technical Lead/Development. Focused on the implementation of game mechanics.
-*   **Aakash:** Design & Asset Management. Responsible for visual elements and UI/UX ideas.
+The following roles were confirmed to ensure effective project management:
+*   **Tasnim (Team Leader):** Responsible for overall project management and final deliverables.
+*   **Abiral (Project Coordinator):** Responsible for guiding the storyboard process, filling daily checklists, managing documentation, and group representation.
+*   **Sebastian:** Technical and project contributor.
+*   **Aakash:** Design and project contributor.
 
 ---
 
 ## 4. Action Items
-| Task | Assigned To | Due Date |
+| Task | Assigned To | Status |
 | :--- | :--- | :--- |
-| Create a shared GitHub repository | Abiral | 2026-06-01 |
-| Begin draft of the Storyboard | Tasnim / Abiral | 2026-06-03 |
-| Research phishing templates for game assets | Sebastian / Aakash | 2026-06-03 |
+| Complete the project report draft | Tasnim | In Progress |
+| Fill out the daily project checklist | Abiral | In Progress |
+| Finalize game storyboard on Canva | Group | In Progress |
+| Update project documentation in Markdown | Abiral | In Progress |
 
 ---
 
 ## 5. Next Meeting
-*   **Focus:** Reviewing the initial Storyboard and Canva ideas.
+*   **Focus:** Reviewing the storyboard and checklist progress.
 *   **Proposed Date:** June 05, 2026

@@ -1,4 +1,4 @@
-# Presentation Plan — Phish Hunt Final
+# Presentation Plan — Phish Hunt
 
 ## Project Information
 

@@ -1,4 +1,4 @@
-# AI Use Log — Phish Hunt-spot the scam!
+# AI Use Log — Phish Hunt spot the scam!
 
 ## Project Information
 

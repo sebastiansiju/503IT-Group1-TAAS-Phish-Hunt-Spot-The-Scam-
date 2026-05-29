@@ -1,4 +1,4 @@
-# Daily Log | 2026-05-21
+# Daily Log | 2026.05.21
 
 ### Summary
 * **Presentation**: Delivered today's presentation to the group/audience.

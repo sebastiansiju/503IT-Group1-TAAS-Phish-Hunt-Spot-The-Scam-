@@ -1,6 +1,6 @@
 # Meeting Minutes: Project Initiation & Planning
 
-**Date:** May 29, 2026  
+**Date:** May 07, 2026  
 **Project:** Phish Hunt: Spot the Scam
 **Meeting No:** 01  
 
@@ -47,6 +47,4 @@ The following roles were confirmed to ensure effective project management:
 
 ---
 
-## 5. Next Meeting
-*   **Focus:** Reviewing the storyboard and checklist progress.
-*   **Proposed Date:** June 05, 2026
+

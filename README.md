@@ -1,6 +1,6 @@
 # 503IT_GROUP_1_CYBERSECURITY_KID_GAME-
 
-Group Name: Team TAAS
+Group Name: Team TaAs
 
 Group Members:
 

@@ -25,7 +25,7 @@ This script serves as the structured timeline for our group's 2-minute progress 
 
 ### Current Project Status
 * **Project Framework:** Activity G: 2-minute group progress pitch check.
-* **Core Technology:** Visual Studio Code (HTML5, CSS3, JavaScript).
+* **Core Technology:** Visual Studio Code (HTML, CSS, JavaScript).
 * **Target Focus:** Replicating high-fidelity UI elements to match social media and mobile message layouts familiar to teenagers.
 
 ### Next Sprint Milestones

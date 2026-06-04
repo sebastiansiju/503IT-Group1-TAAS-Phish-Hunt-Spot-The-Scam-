@@ -1,4 +1,4 @@
-# Topic: My Contribution Across Week 1–4 (Realistic Summary)
+# Topic: My Contribution Across Week 1–4 
 
 ## Overview
 This document summarises my contribution to the project *Phish Hunt – Spot the Scam!* across Week 1 to Week 4. Although I was absent during Week 3 and Week 4, I continued supporting the team remotely and completed follow‑up work to stay aligned with the project’s progress. My main contributions were in concept development, tool selection, prototype planning, documentation support, and post‑absence catch‑up tasks.
@@ -17,7 +17,7 @@ During Week 1, I actively participated in the early planning stages of the proje
 ---
 
 ## Week 2 – Storyboard, UX Review & Tool Selection
-In Week 2, I played a major role in refining the storyboard and updating the Game Concept Canvas during Session 1. I helped ensure the player journey (welcome → challenge → choices → feedback) was clear and matched our target audience. I also contributed to the UX and accessibility review by suggesting improvements for readability, colour contrast, and button clarity.
+In Week 2, I tried to refine the storyboard and update the Game Concept Canvas during Session 1. I helped ensure the player journey (welcome → challenge → choices → feedback) was clear and matched our target audience. I also contributed to the UX and accessibility review by suggesting improvements for readability, colour contrast, and button clarity.
 
 During Session 2, I contributed to the tool‑selection process. I helped compare Scratch and Visual Studio Code, and supported the final decision to use VS Code based on realism, flexibility, and suitability for phishing simulations. I also helped prepare the development plan and contributed to the 2‑minute pitch notes.
 
@@ -36,7 +36,6 @@ I supported the team by helping refine written documentation, including developm
 
 **Key Contributions**
 - Remote review of prototype updates  
-- Provided UX and clarity feedback through group chat  
 - Reviewed GitHub commits to stay aligned with progress  
 - Helped refine written documentation and explanations  
 
@@ -51,8 +50,6 @@ I contributed by helping polish documentation, improving the structure of writte
 - Completed catch‑up review of all Week‑4 updates  
 - Tested the final prototype independently  
 - Helped polish documentation and improve structure  
-- Reviewed and refined final presentation slides  
-
 ---
 
 ## Summary of My Contribution

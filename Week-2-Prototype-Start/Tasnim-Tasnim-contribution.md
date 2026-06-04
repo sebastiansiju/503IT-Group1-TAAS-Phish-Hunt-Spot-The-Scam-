@@ -1,7 +1,7 @@
 # Week 2 – My Contribution
 
 ## Overview
-In Week 2, I supported my group by helping with the planning and improvement of our game idea. My contribution was mainly giving feedback, helping update documents, and taking part in the tool‑selection discussion.
+In Week 2, I supported my group by helping with the planning and improvement of our game idea. My contribution was mainly giving feedback, helping update documents and taking part in the tool‑selection discussion.
 
 ---
 

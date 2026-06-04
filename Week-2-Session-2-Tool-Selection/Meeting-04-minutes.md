@@ -8,6 +8,6 @@
 * **Project Framework:** Phishing Awareness & Digital Resilience for Teens
 
 ## 💬 Discussion Records
-### I. Conceptual Scoping & Objectives
+###  Conceptual Scoping & Objectives
 * Confirmed the definitive choice of **Phishing Awareness** over competing project ideas.
 * Clarified that educational modules must shift away from outdated desktop email scenarios to target mobile vector spaces, specifically **Smishing**, malicious text links, and private platform messaging systems.

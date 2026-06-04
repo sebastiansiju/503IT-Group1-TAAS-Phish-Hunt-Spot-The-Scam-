@@ -2,12 +2,8 @@
 
 ## Topic: Presentation Practice & Reflection
 
-During our presentation practice sessions, We focused on improving both the clarity of my delivery and the overall flow of our group presentation. 
+During our presentation practice sessions, we focused on improving the clarity, structure, and delivery of our group presentation. We rehearsed our sections multiple times to ensure that each part of the presentation flowed smoothly and that we could explain our game concept, development process, and prototype features confidently. As a team, we paid attention to pacing, tone, and how we communicated technical ideas in a simple and accessible way for our audience.
 
-We rehearsed our section multiple times to ensure we could explain our game concept, development process, and prototype features confidently and without relying too heavily on notes. 
+We also worked on strengthening transitions between speakers so the presentation felt connected and professional. Together, we reviewed our slides and made improvements such as adding clearer screenshots of the prototype, simplifying text, and ensuring that each visual supported the key points we wanted to communicate. Throughout practice, we gave each other constructive feedback, helping one another adjust timing, refine explanations, and improve overall delivery.
 
-While practising, I paid attention to my pacing, tone, and body language so that my communication would be clear, professional, and engaging for the audience.
-
-As a group, we also refined the transitions between speakers to make the presentation feel more connected and organised. I contributed by suggesting where visual slides could be improved, such as adding clearer screenshots of the prototype and simplifying text so the audience could follow our points more easily. I also gave feedback to my teammates during practice, helping them adjust their timing and strengthen their explanations.
-
-Reflecting on the practice, I realised how important preparation is for delivering a confident and polished presentation. Practising allowed me to identify areas where I needed to slow down, emphasise key points, and maintain eye contact. It also helped me understand how to communicate technical ideas in a simple and accessible way, which is essential when presenting to clients or non‑technical audiences. Overall, the practice sessions improved my confidence, teamwork, and communication skills, and prepared me to deliver a more professional final presentation.
+Reflecting on the practice, we recognised how important preparation is for delivering a confident and polished presentation. Rehearsing allowed us to identify areas where we needed to slow down, emphasise important points, and maintain stronger engagement with the audience. It also helped us develop better teamwork and communication skills, as we learned how to coordinate our speaking roles and support each other effectively. Overall, the practice sessions strengthened our confidence and prepared us to deliver a more professional and cohesive final presentation.

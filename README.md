@@ -152,6 +152,27 @@ This project follows **WCAG 2.1 Level AA** guidelines.
     └── sebastian-contribution.md
 ```
 
+
+| Game Part                   | Pixabay Audio                                      |
+| --------------------------- | -------------------------------------------------- |
+| **Start Screen**            | **Water** or **Escape Your Love (Upbeat Fashion)** |
+| **Question Music (30 sec)** | **The_Mountain**                                   |
+| **Safe Answer**             | **freesound_community** sound effect               |
+| **Scam / Dangerous Choice** | **DRAGON-STUDIO** sound effect                     |
+| **Wrong Answer**            | **BUZZER** sound effect                            |
+| **Time's Up**               | **Thud Sound Effect**                              |
+
+---
+
+## Play the Game
+
+If you'd like to play our game, simply click the link below:
+
+🎮 https://final-game-prototype.vercel.app/
+
+The game can be played on mobile phones, tablets, and laptops, so anyone can access and enjoy it on their preferred device.
+
+We welcome everyone to try it out and share the feedback. Have fun playing!
 ---
 
 ## Project Goal
